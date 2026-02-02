@@ -1,0 +1,22 @@
+import * as L from "../../../styles/home.styles";
+import * as S from "./HeroSection.styles";
+import logo from "../../../assets/logo/logo_2.png";
+import bg1 from "../../../assets/background/bg_1.png";
+
+const HeroSection = () => {
+  return (
+    <L.Container bg={bg1}>
+      <L.Content>
+        <S.Title>AI와 기술로</S.Title>
+        <S.Title>더 나은 확장을 연구하는 파트너,</S.Title>
+        <S.Subtitle>AmpLAB</S.Subtitle>
+        <S.Description>
+          가치를 확장하고, 비즈니스 성공을 함께 만들어갑니다.
+        </S.Description>
+      </L.Content>
+      <img src={logo} alt="logo" />
+    </L.Container>
+  );
+};
+
+export default HeroSection;
