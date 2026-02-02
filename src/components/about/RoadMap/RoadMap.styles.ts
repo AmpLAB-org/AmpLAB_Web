@@ -1,23 +1,20 @@
 import styled from "styled-components";
 
-/* 헤더 */
 export const Header = styled.div`
   text-align: center;
-  margin-bottom: 120px;
+  margin-bottom: 100px;
 `;
 
 export const SubTitle = styled.p`
   font-size: 14px;
-  opacity: 0.6;
   margin-bottom: 8px;
 `;
 
 export const Title = styled.h2`
   font-size: 36px;
-  font-weight: 700;
+  font-weight: bolder;
 `;
 
-/* 타임라인 */
 export const Timeline = styled.div`
   position: relative;
   width: 100%;
@@ -27,7 +24,6 @@ export const Timeline = styled.div`
   gap: 120px;
 `;
 
-/* 중앙 라인 */
 export const Line = styled.div`
   position: absolute;
   top: 0;
@@ -38,7 +34,6 @@ export const Line = styled.div`
   background: linear-gradient(180deg, #ff4fd8, #7c3aed);
 `;
 
-/* 아이템 */
 export const Item = styled.div<{ $side: "left" | "right" }>`
   position: relative;
   display: flex;
@@ -46,7 +41,6 @@ export const Item = styled.div<{ $side: "left" | "right" }>`
     $side === "left" ? "flex-start" : "flex-end"};
 `;
 
-/* 중앙 점 */
 export const Dot = styled.div`
   position: absolute;
   left: 50%;
@@ -59,7 +53,6 @@ export const Dot = styled.div`
   z-index: 2;
 `;
 
-/* 카드 */
 export const Card = styled.div`
   width: 360px;
   padding: 28px;
@@ -69,7 +62,6 @@ export const Card = styled.div`
   box-shadow: 0 10px 40px rgba(124, 58, 237, 0.35);
 `;
 
-/* 뱃지 */
 export const Badge = styled.span`
   display: inline-block;
   font-size: 12px;
@@ -80,7 +72,6 @@ export const Badge = styled.span`
   margin-bottom: 12px;
 `;
 
-/* 카드 텍스트 */
 export const CardTitle = styled.h3`
   font-size: 22px;
   font-weight: 700;
@@ -93,7 +84,6 @@ export const CardDesc = styled.p`
   white-space: pre-line;
 `;
 
-/* GOAL */
 export const GoalWrap = styled.div`
   display: flex;
   justify-content: center;
@@ -128,15 +118,12 @@ export const Section = styled.section`
   overflow: hidden;
 `;
 
-
-/* 🔥 이미지 위에 올라가는 콘텐츠 */
 export const Content = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    padding: 500px 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 300px 0;
 `;
-
 
 export const Overlay = styled.div`
   position: absolute;

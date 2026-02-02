@@ -2,11 +2,10 @@ import styled from "styled-components";
 import * as L from "../../../styles/common.styles";
 
 export const SpenWrapper = styled.div`
-height: auto;
+  height: auto;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  padding: 100px;
   padding-top: 200px;
 `;
 

@@ -1,15 +1,21 @@
+import { Link } from 'react-router';
 import logo from '../../assets/logo/logo_1.svg';
 import * as S from './Header.styles';
 
 const Header = () => {
   return (
     <S.HeaderContainer>
-        <img src={logo}/>
+      <img src={logo} alt="Logo" />
       <S.Div>
-        <S.Span>About us</S.Span>
-        <S.Span>Download</S.Span>
-        <S.Span>Contact</S.Span>
-        <S.Span>Contact</S.Span>
+        <Link to="/about">
+          <S.Span>About us</S.Span>
+        </Link>
+        <Link to="/download">
+          <S.Span>Download</S.Span>
+        </Link>
+        <Link to="/contact">
+          <S.Span>Contact</S.Span>
+        </Link>
       </S.Div>
     </S.HeaderContainer>
   );
