@@ -4,6 +4,7 @@ import * as S from "./BackgroundSection.styles";
 import RadialMenuItem from "../../../components/RadialMenuItem/ReadiaMenuItem";
 import bg3 from "../../../assets/background/bg_3.svg";
 import { menuItems } from "../../../data/BackgroundSection";
+import logo from "../../../assets/logo/Group 21.svg";
 
 const BackgroundSection = () => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -26,8 +27,8 @@ const BackgroundSection = () => {
       </L.Content>
 
       <S.Container bg={bg3}>
-        <S.OutCircle>
-          <S.MainCircle>
+        <S.OutCircle $activeAngle={activeItem.angle}>
+          <S.MainCircle img={logo}>
             <S.InnerDot $activeAngle={activeItem.angle} $distance="300px" />
             {menuItems.map((item, index) => (
               <RadialMenuItem
