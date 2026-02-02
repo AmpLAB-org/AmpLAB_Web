@@ -9,41 +9,37 @@ export interface ContainerProps {
   bg?: string;
 }
 
-export const Container = styled.div<ContainerProps>`
+export const Container = styled.section`
   width: 100%;
-  height: 100vh;
-
-  background-image: ${(p) => (p.bg ? `url(${p.bg})` : "none")};
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
+  position: relative;
 `;
 
-export const Container_2 = styled.div`
-  padding: 150px 0;
+export const BgImage = styled.img`
   width: 100%;
   height: auto;
-  display: flex;
-  background: #fff;
-  gap: 100px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: block;
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
   gap: 10px;
 `;
+
+export const Overlay = styled.div`
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 
 export const TextOverlay = styled.div`
   width: 100%;

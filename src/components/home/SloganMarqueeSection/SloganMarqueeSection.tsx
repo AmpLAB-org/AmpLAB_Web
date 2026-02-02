@@ -4,7 +4,7 @@ const SloganMarqueeSection = () => {
   return (
     <S.SpenWrapper>
       <S.SpenTrack>
-        {Array(4)
+        {Array(5)
           .fill("GRIT IN ACTION")
           .map((text, idx) => (
             <S.SpenText key={idx}>{text}</S.SpenText>

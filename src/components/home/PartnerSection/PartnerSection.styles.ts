@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import * as G from "../../../styles/home.styles"
+import * as G from "../../../styles/common.styles";
 
 export const MarqueeWrapper = styled.div`
   width: 100%;
   overflow: hidden;
-  padding: 120px 0 40px;
+  padding: 0 0 20px;
 `;
 
 export const Marquee = styled.div`
@@ -32,4 +32,16 @@ export const Logo = styled.img`
   max-width: 80%;
   max-height: 80%;
   object-fit: contain;
+`;
+
+export const Container = styled.div`
+  padding: 100px 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  background: #fff;
+  gap: 100px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;

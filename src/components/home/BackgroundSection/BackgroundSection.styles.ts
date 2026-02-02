@@ -1,9 +1,5 @@
 import styled from "styled-components";
 
-interface Props {
-  bg: string;
-}
-
 interface InnerDotProps {
   $activeAngle: number;
   $distance?: string;
@@ -13,14 +9,11 @@ interface OutCircleProps {
   $activeAngle: number;
 }
 
-export const Container = styled.section<Props>`
-  width: 100%;
-  height: 100vh;
-  background: url(${(p) => p.bg}) center / cover no-repeat;
-
+export const CircleWrapper = styled.div`
+  padding: 100px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 `;
 
 export const MainCircle = styled.div<{ img: string }>`
@@ -53,7 +46,6 @@ export const MainCircle = styled.div<{ img: string }>`
     pointer-events: none;
   }
 `;
-
 
 export const Description = styled.p`
   font-size: 30px;

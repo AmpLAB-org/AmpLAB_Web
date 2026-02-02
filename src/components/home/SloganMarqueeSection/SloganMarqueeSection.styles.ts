@@ -1,11 +1,13 @@
 import styled from "styled-components";
-import * as L from "../../../styles/home.styles"
+import * as L from "../../../styles/common.styles";
 
 export const SpenWrapper = styled.div`
+height: auto;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  padding: 40px 0;
+  padding: 100px;
+  padding-top: 200px;
 `;
 
 export const SpenTrack = styled.div`
