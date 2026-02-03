@@ -4,7 +4,7 @@ import * as S from "./BackgroundSection.styles";
 import RadialMenuItem from "../../../components/RadialMenuItem/ReadiaMenuItem";
 import bg3 from "../../../assets/background/bg_3.svg";
 import { menuItems } from "../../../data/BackgroundSection";
-import logo from "../../../assets/logo/Group 21.svg";
+import logo from "../../../assets/logo/logo_3.svg";
 
 const BackgroundSection = () => {
   const [activeIndex, setActiveIndex] = useState(1);
