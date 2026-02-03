@@ -4,6 +4,7 @@ import About from "./pages/AboutUs";
 import Home from "./pages/Home";
 import Community from "./pages/Community";
 import Blog from "./pages/community/Blog";
+import WriteBlog from "./pages/community/WriteBlog";
 import News from "./pages/community/News";
 import CommunityBoard from "./pages/community/CommunityBoard";
 
@@ -18,7 +19,9 @@ function App() {
         {/* <Route path="/contact" element={<Contact />} /> */}
         <Route path="/community" element={<Community />}>
           <Route index element={<Navigate to="/community/blog" replace />} />
-          <Route path="blog" element={<Blog />} />
+          <Route path="blog" element={<Blog />}>
+            <Route path="write" element={<WriteBlog />} />
+          </Route>
           <Route path="news" element={<News />} />
           <Route path="community" element={<CommunityBoard />} />
         </Route>
