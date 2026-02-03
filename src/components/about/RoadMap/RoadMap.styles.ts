@@ -18,10 +18,10 @@ export const Title = styled.h2`
 export const Timeline = styled.div`
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
-  gap: 120px;
+  gap: 50px;
 `;
 
 export const Line = styled.div`
@@ -30,8 +30,9 @@ export const Line = styled.div`
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, #ff4fd8, #7c3aed);
+  height: 84%;
+  background: linear-gradient(180deg, #991375, #0057b8);
+  z-index: -1;
 `;
 
 export const Item = styled.div<{ $side: "left" | "right" }>`
@@ -39,49 +40,65 @@ export const Item = styled.div<{ $side: "left" | "right" }>`
   display: flex;
   justify-content: ${({ $side }) =>
     $side === "left" ? "flex-start" : "flex-end"};
+  text-align: ${({ $side }) => ($side === "left" ? "right" : "left")};
+  align-items: ${({ $side }) => ($side === "left" ? "flex-end" : "flex-start")};
 `;
 
 export const Dot = styled.div`
   position: absolute;
   left: 50%;
-  top: 40px;
+  top: 100px;
   transform: translateX(-50%);
-  width: 14px;
-  height: 14px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff4fd8, #7c3aed);
+  background: linear-gradient(90deg, #991375, #2c008e);
+  box-shadow:
+    0 0 6px rgba(153, 19, 117, 0.6),
+    0 0 12px rgba(44, 0, 142, 0.4);
+  border: 1.5px solid #fff;
   z-index: 2;
 `;
 
-export const Card = styled.div`
-  width: 360px;
-  padding: 28px;
+export const Card = styled.div<{ $side: "left" | "right" }>`
+  width: 400px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+  padding: 23px 26px;
   background: #fff;
   color: #111;
   border-radius: 16px;
-  box-shadow: 0 10px 40px rgba(124, 58, 237, 0.35);
+  box-shadow: 0 0px 25px rgba(124, 58, 237, 0.15);
+  justify-content: space-between;
 `;
 
-export const Badge = styled.span`
+export const Badge = styled.span<{ $side: "left" | "right" }>`
+  align-self: ${({ $side }) => ($side === "left" ? "flex-end" : "flex-start")};
+
   display: inline-block;
+  width: 50px;
+  text-align: center;
   font-size: 12px;
-  padding: 4px 10px;
+  padding: 4px 12px;
   border-radius: 999px;
   background: rgba(124, 58, 237, 0.15);
   color: #7c3aed;
-  margin-bottom: 12px;
+  font-weight: bold;
 `;
 
 export const CardTitle = styled.h3`
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 12px;
+  font-size: 24px;
+  font-weight: bold;
+  padding-bottom: 12px;
 `;
 
 export const CardDesc = styled.p`
-  font-size: 15px;
-  line-height: 1.6;
+  font-size: 16px;
+  font-weight: lighter;
   white-space: pre-line;
+  line-height: 1.4;
 `;
 
 export const GoalWrap = styled.div`
@@ -91,24 +108,26 @@ export const GoalWrap = styled.div`
 `;
 
 export const GoalCard = styled.div`
-  width: 420px;
-  padding: 40px;
-  border-radius: 20px;
-  background: linear-gradient(135deg, #b845ed, #7c3aed);
+  width: 400px;
+  padding: 36px 23px;
+  border-radius: 15px;
+  background: linear-gradient(90deg, #991375, #2c008e);
   text-align: center;
   box-shadow: 0 20px 60px rgba(124, 58, 237, 0.6);
+  color: #fff;
 `;
 
 export const GoalTitle = styled.h2`
-  font-size: 32px;
-  font-weight: 800;
-  margin-bottom: 12px;
+  font-size: 60px;
+  font-weight: bolder;
 `;
 
 export const GoalDesc = styled.p`
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 20px;
   white-space: pre-line;
+  strong {
+    font-weight: bolder;
+  }
 `;
 
 export const Section = styled.section`

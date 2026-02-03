@@ -17,40 +17,52 @@ const RoadMap = () => {
 
           <S.Item $side="left">
             <S.Dot />
-            <S.Card>
-              <S.Badge>Value 1</S.Badge>
-              <S.CardTitle>고객 성장</S.CardTitle>
-              <S.CardDesc>
-                고객의 비즈니스 성장을 돕고,
-                <br />
-                사회 전체가 성장할 수 있도록 기여합니다.
-              </S.CardDesc>
+            <S.Card $side="left">
+              <S.Badge $side="left">Value 1</S.Badge>
+              <div>
+                <S.CardTitle>고객 성장</S.CardTitle>
+                <S.CardDesc>
+                  고객의 비즈니스 성장을 돕고, 나아가
+                  <br />
+                  사회 전체가 성장할 수 있도록 기여합니다.
+                </S.CardDesc>
+              </div>
             </S.Card>
           </S.Item>
 
           <S.Item $side="right">
             <S.Dot />
-            <S.Card>
-              <S.Badge>Value 2</S.Badge>
-              <S.CardTitle>끈기있는 실행</S.CardTitle>
-              <S.CardDesc>
-                멈추지 않고 시도하며 배우고
-                <br />
-                끝까지 책임감 있게 실행합니다.
-              </S.CardDesc>
+            <S.Card $side="right">
+              <S.Badge $side="right">Value 2</S.Badge>
+              <div>
+                <S.CardTitle>끈기있는 실행</S.CardTitle>
+                <S.CardDesc>
+                  망설이지 않고 시도하고 배우며 끝까지 해결합니다.
+                  <br />
+                  적극적으로 행동하고 무엇이든 끝까지
+                  <br />
+                  책임감 있게 실행합니다.
+                </S.CardDesc>
+              </div>
             </S.Card>
           </S.Item>
 
           <S.Item $side="left">
             <S.Dot />
-            <S.Card>
-              <S.Badge>Value 3</S.Badge>
-              <S.CardTitle>체계적인 공유</S.CardTitle>
-              <S.CardDesc>
-                지식과 경험을 공유하며
-                <br />
-                함께 성장하는 문화를 만듭니다.
-              </S.CardDesc>
+            <S.Card $side="left">
+              <S.Badge $side="left">Value 3</S.Badge>
+              <div>
+                <S.CardTitle>체계적인 공유</S.CardTitle>
+                <S.CardDesc>
+                  우리는 정보공유보다 회고에서 배우는
+                  <br />
+                  지식을 공유하고 소통이 기본이라 믿습니다.
+                  <br />
+                  누구나 쉽게 성장할 수 있도록 경험과 지식을
+                  <br />
+                  공유하는것을 기본 원칙으로 삼습니다.
+                </S.CardDesc>
+              </div>
             </S.Card>
           </S.Item>
 
@@ -58,9 +70,9 @@ const RoadMap = () => {
             <S.GoalCard>
               <S.GoalTitle>GOAL</S.GoalTitle>
               <S.GoalDesc>
-                혁신으로 가능성을 확장하고
+                혁신으로 가능성을 확장하고 가치를 실현하는,
                 <br />
-                가치를 실현하는 앰플랩
+                <strong>우리는 앰플랩입니다.</strong>
               </S.GoalDesc>
             </S.GoalCard>
           </S.GoalWrap>

@@ -8,14 +8,20 @@ const BackgroundSection = () => {
       <L.BgImage src={bg} />
       <L.Overlay>
         <S.HeroContent>
-          <S.Subtitle>Introduce AmpLAB</S.Subtitle>
-          <S.Title>앰플랩 소개</S.Title>
-          <S.Description>
-            고객 중심 기술 실현으로 비즈니스 성공을 함께하는 기술 파트너
-          </S.Description>
+          <S.Content>
+            <div>
+              <S.Subtitle>Introduce AmpLAB</S.Subtitle>
+              <S.Title>앰플랩 소개</S.Title>
+            </div>
+            <S.Description>
+              고객 중심 기술 실현으로 비즈니스 성공을 함께하는 기술 파트너
+            </S.Description>
+          </S.Content>
 
           <S.ButtonGroup>
-            <S.PrimaryButton>Explore More</S.PrimaryButton>
+            <S.PrimaryButton>
+              <span>Explore More</span>
+            </S.PrimaryButton>
             <S.SecondaryButton>Contact Us</S.SecondaryButton>
           </S.ButtonGroup>
         </S.HeroContent>
@@ -34,9 +40,11 @@ const BackgroundSection = () => {
 
         <S.BottomText>
           <strong>앰플랩(AmpLAB)은 Amplify(확장)와 Lab(연구소)의 결합</strong>
-          으로 설립된 사업모델과 제품을 발굴하고 고도화하는 프로그램입니다.
-          기술과 자본, 그리고 커뮤니티로 기술 혁신을 가속화하는 것을 목표로
-          기업의 성장과정에 적극적으로 참여합니다.
+          으로
+          <br />
+          더 많은 가치를 연구하고 확장하는 경험을 제공하는 기업입니다.
+          <br />
+          파트너와 함께 더 나은 확장을 목표로 솔루션을 연구하고 개발합니다.
         </S.BottomText>
       </L.Overlay>
     </L.Container>
