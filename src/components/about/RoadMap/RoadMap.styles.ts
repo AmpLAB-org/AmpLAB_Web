@@ -58,6 +58,11 @@ export const Dot = styled.div`
     0 0 12px rgba(44, 0, 142, 0.4);
   border: 1.5px solid #fff;
   z-index: 2;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
 `;
 
 export const Card = styled.div<{ $side: "left" | "right" }>`

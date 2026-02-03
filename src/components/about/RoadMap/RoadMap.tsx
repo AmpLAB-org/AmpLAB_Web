@@ -2,6 +2,14 @@ import * as S from "./RoadMap.styles";
 import bg from "../../../assets/background/bg_3.svg";
 import * as L from "../../../styles/common.styles";
 import { motion } from "framer-motion";
+import {
+  BookCheck,
+  Zap,
+  Globe,
+  ArrowDownAZ,
+  Share2,
+  Handshake,
+} from "lucide-react";
 
 const RoadMap = () => {
   return (
@@ -23,7 +31,7 @@ const RoadMap = () => {
             viewport={{ once: true }}
           >
             <S.Item $side="left">
-              <S.Dot />
+              <S.Dot><Zap /></S.Dot>
               <S.Card $side="left">
                 <S.Badge $side="left">Value 1</S.Badge>
                 <div>
@@ -45,7 +53,7 @@ const RoadMap = () => {
             viewport={{ once: true }}
           >
             <S.Item $side="right">
-              <S.Dot />
+              <S.Dot><BookCheck /></S.Dot>
               <S.Card $side="right">
                 <S.Badge $side="right">Value 2</S.Badge>
                 <div>
@@ -69,7 +77,7 @@ const RoadMap = () => {
             viewport={{ once: true }}
           >
             <S.Item $side="left">
-              <S.Dot />
+              <S.Dot><Globe /></S.Dot>
               <S.Card $side="left">
                 <S.Badge $side="left">Value 3</S.Badge>
                 <div>
