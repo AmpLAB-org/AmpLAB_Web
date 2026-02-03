@@ -10,15 +10,15 @@ interface OutCircleProps {
 }
 
 export const CircleWrapper = styled.div`
-  padding: 100px;
+  padding: 200px 0;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 export const MainCircle = styled.div<{ img: string }>`
-  width: 665px;
-  height: 665px;
+  width: 565px;
+  height: 565px;
   border-radius: 50%;
   position: relative;
   background: #fff;
@@ -69,8 +69,8 @@ export const InnerDot = styled.div<InnerDotProps>`
 `;
 
 export const OutCircle = styled.div<OutCircleProps>`
-  width: 695px;
-  height: 695px;
+  width: 595px;
+  height: 595px;
   border-radius: 50%;
   position: relative;
 
@@ -111,6 +111,6 @@ export const OutCircle = styled.div<OutCircleProps>`
 export const Line = styled.div`
   width: 1px;
   height: 45px;
-  background-color:#000;
+  background-color: #000;
   margin: 45px;
 `;

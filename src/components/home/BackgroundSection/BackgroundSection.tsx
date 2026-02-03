@@ -34,13 +34,13 @@ const BackgroundSection = () => {
             <S.MainCircle img={logo}>
               <S.InnerDot
                 $activeAngle={activeItem.angle}
-                $distance="300px"
+                $distance="250px"
               />
               {menuItems.map((item, index) => (
                 <RadialMenuItem
                   key={item.id}
                   item={item}
-                  radius={500}
+                  radius={450}
                   isActive={index === activeIndex}
                   onHover={() => setActiveIndex(index)}
                 />
