@@ -5,7 +5,9 @@ import * as S from './Header.styles';
 const Header = () => {
   return (
     <S.HeaderContainer>
-      <img src={logo} alt="Logo" />
+      <Link to="/">
+        <img src={logo} alt="Logo" />
+      </Link>
       <S.Div>
         <Link to="/about">
           <S.Span>About us</S.Span>

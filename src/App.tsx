@@ -2,11 +2,11 @@ import { BrowserRouter as Router, Routes, Route /*, Navigate*/ } from "react-rou
 import Header from "./components/header/Header";
 import About from "./pages/AboutUs";
 import Home from "./pages/Home";
-import Community from "./pages/Community";
-import Blog from "./pages/community/Blog";
-import WriteBlog from "./pages/community/WriteBlog";
-import News from "./pages/community/News";
-import CommunityBoard from "./pages/community/CommunityBoard";
+// import Community from "./pages/Community";
+// import Blog from "./pages/community/Blog";
+// import WriteBlog from "./pages/community/WriteBlog";
+// import News from "./pages/community/News";
+// import CommunityBoard from "./pages/community/CommunityBoard";
 
 function App() {
   return (
