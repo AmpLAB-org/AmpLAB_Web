@@ -16,6 +16,9 @@ const Header = () => {
         <Link to="/contact">
           <S.Span>Contact</S.Span>
         </Link>
+        <Link to="/community">
+          <S.Span>Community</S.Span>
+        </Link>
       </S.Div>
     </S.HeaderContainer>
   );
