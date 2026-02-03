@@ -107,3 +107,10 @@ export const OutCircle = styled.div<OutCircleProps>`
     transition: background 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
+
+export const Line = styled.div`
+  width: 1px;
+  height: 45px;
+  background-color:#000;
+  margin: 45px;
+`;

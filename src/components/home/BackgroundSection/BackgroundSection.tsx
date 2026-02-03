@@ -22,6 +22,7 @@ const BackgroundSection = () => {
           <L.CardSubtitle>
             We make products and amplify them to accelerate business.
           </L.CardSubtitle>
+          <S.Line/>
           <S.Description>
             앰플랩은 제품을 만들고, 가치를 증폭하며, 비즈니스를 가속하는 프로덕트
             실험실입니다
