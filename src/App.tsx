@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
+import { BrowserRouter as Router, Routes, Route /*, Navigate*/ } from "react-router";
 import Header from "./components/header/Header";
 import About from "./pages/AboutUs";
 import Home from "./pages/Home";
@@ -17,14 +17,14 @@ function App() {
         <Route path="/about" element={<About />} />
         {/* <Route path="/download" element={<Download />} /> */}
         {/* <Route path="/contact" element={<Contact />} /> */}
-        <Route path="/community" element={<Community />}>
+        {/* <Route path="/community" element={<Community />}>
           <Route index element={<Navigate to="/community/blog" replace />} />
           <Route path="blog" element={<Blog />}>
             <Route path="write" element={<WriteBlog />} />
           </Route>
           <Route path="news" element={<News />} />
           <Route path="community" element={<CommunityBoard />} />
-        </Route>
+        </Route> */}
       </Routes>
     </Router>
   );
