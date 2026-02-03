@@ -21,7 +21,7 @@ export const Timeline = styled.div`
   max-width: 1000px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 70px;
 `;
 
 export const Line = styled.div`
