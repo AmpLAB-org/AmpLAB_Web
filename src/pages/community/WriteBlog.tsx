@@ -1,21 +1,32 @@
 // @ts-nocheck
 import axios from "axios";
-// axios import 해야함
-
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 
 function WriteBlog() {
+  const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const chosen = e.target.files;
+    if (!chosen?.length) return;
+    const newFiles = Array.from(chosen);
+    setSelectedFiles((prev) => [...prev, ...newFiles]);
+    e.target.value = ""; // 같은 input으로 다시 선택해 추가할 수 있게 비움
+  };
+
+  const removeFile = (index: number) => {
+    setSelectedFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
   async function uploadBlogPost() {
+    console.log(selectedFiles);
+
     const formDataForBlog = new FormData();
+    selectedFiles.forEach((file) => {
+      formDataForBlog.append("nameformulter", file);
+    });
 
-    console.log(document.getElementById("uploadimageinblog"));
-    console.log(document.getElementById("uploadimageinblog").files);
-    console.log(document.getElementById("uploadimageinblog").files[0]);
-
-    formDataForBlog.append(
-      "nameformulter",
-      document.getElementById("uploadimageinblog").files[0]
-    );
+    console.dir(formDataForBlog);
 
     await axios.post(
       "http://localhost:5013/homepage/blog/upload",
@@ -27,7 +38,26 @@ function WriteBlog() {
     <div>
       블로그 글쓰기 페이지
       <input />
-      <input type="file" id="uploadimageinblog" name="nameformulter" />
+      <input
+        ref={fileInputRef}
+        type="file"
+        id="uploadimageinblog"
+        name="nameformulter"
+        multiple
+        onChange={handleFileChange}
+      />
+      {selectedFiles.length > 0 && (
+        <ul>
+          {selectedFiles.map((file, index) => (
+            <li key={`${file.name}-${index}`}>
+              {file.name}
+              <button type="button" onClick={() => removeFile(index)}>
+                제거
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
       <textarea />
       <button type="button" onClick={uploadBlogPost}>
         완료
