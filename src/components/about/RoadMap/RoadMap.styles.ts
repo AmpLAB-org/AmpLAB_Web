@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+interface CardProps {
+  $side: "left" | "right";
+  $color: "purple" | "pink";
+}
+
 export const Header = styled.div`
   text-align: center;
   margin-bottom: 100px;
@@ -79,7 +84,7 @@ export const Card = styled.div<{ $side: "left" | "right" }>`
   justify-content: space-between;
 `;
 
-export const Badge = styled.span<{ $side: "left" | "right" }>`
+export const Badge = styled.span<CardProps>`
   align-self: ${({ $side }) => ($side === "left" ? "flex-end" : "flex-start")};
 
   display: inline-block;
@@ -88,15 +93,19 @@ export const Badge = styled.span<{ $side: "left" | "right" }>`
   font-size: 12px;
   padding: 4px 12px;
   border-radius: 999px;
-  background: rgba(124, 58, 237, 0.15);
-  color: #7c3aed;
+  background: ${({ $color }) =>
+    $color === "purple"
+      ? "rgba(44, 0, 142, 0.1)"
+      : "rgba(153, 19, 117, 0.1)"};
+  color: ${({ $color }) => ($color === "purple" ? "#2C008E" : "#991375")};
   font-weight: bold;
 `;
 
-export const CardTitle = styled.h3`
+export const CardTitle = styled.h3<{$color: "purple" | "pink"}>`
   font-size: 24px;
   font-weight: bold;
   padding-bottom: 12px;
+  color: ${({ $color }) => ($color === "purple" ? "#2C008E" : "#991375")};
 `;
 
 export const CardDesc = styled.p`
@@ -158,4 +167,24 @@ export const Overlay = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+`;
+
+export const CardIcon = styled.div<CardProps>`
+  position: absolute;
+
+  svg {
+    width: 100px;
+    height: 100px;
+    color: ${({ $color }) => ($color === "purple" ? "#2C008E" : "#991375")};
+    opacity: 0.3;
+  }
+
+  ${({ $side }) =>
+    $side === "left"
+      ? `
+        left: 26px;
+      `
+      : `
+        right: 26px;
+      `}
 `;

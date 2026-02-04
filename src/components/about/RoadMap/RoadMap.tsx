@@ -31,11 +31,16 @@ const RoadMap = () => {
             viewport={{ once: true }}
           >
             <S.Item $side="left">
-              <S.Dot><Zap /></S.Dot>
+              <S.Dot>
+                <Zap />
+              </S.Dot>
               <S.Card $side="left">
-                <S.Badge $side="left">Value 1</S.Badge>
+                <S.Badge $side="left" $color="pink">Value 1</S.Badge>
+                <S.CardIcon $side="left" $color="pink">
+                  <Handshake />
+                </S.CardIcon>
                 <div>
-                  <S.CardTitle>고객 성장</S.CardTitle>
+                  <S.CardTitle $color="pink">고객 성장</S.CardTitle>
                   <S.CardDesc>
                     고객의 비즈니스 성장을 돕고, 나아가
                     <br />
@@ -53,11 +58,16 @@ const RoadMap = () => {
             viewport={{ once: true }}
           >
             <S.Item $side="right">
-              <S.Dot><BookCheck /></S.Dot>
+              <S.Dot>
+                <BookCheck />
+              </S.Dot>
               <S.Card $side="right">
-                <S.Badge $side="right">Value 2</S.Badge>
+                <S.Badge $side="right" $color="purple">Value 2</S.Badge>
+                <S.CardIcon $side="right" $color="purple">
+                  <ArrowDownAZ />
+                </S.CardIcon>
                 <div>
-                  <S.CardTitle>끈기있는 실행</S.CardTitle>
+                  <S.CardTitle $color="purple">끈기있는 실행</S.CardTitle>
                   <S.CardDesc>
                     망설이지 않고 시도하고 배우며 끝까지 해결합니다.
                     <br />
@@ -77,11 +87,16 @@ const RoadMap = () => {
             viewport={{ once: true }}
           >
             <S.Item $side="left">
-              <S.Dot><Globe /></S.Dot>
+              <S.Dot>
+                <Globe />
+              </S.Dot>
               <S.Card $side="left">
-                <S.Badge $side="left">Value 3</S.Badge>
+                <S.Badge $side="left" $color="pink">Value 3</S.Badge>
+                <S.CardIcon $side="left" $color="pink">
+                  <Share2 />
+                </S.CardIcon>
                 <div>
-                  <S.CardTitle>체계적인 공유</S.CardTitle>
+                  <S.CardTitle $color="pink">체계적인 공유</S.CardTitle>
                   <S.CardDesc>
                     우리는 정보공유보다 회고에서 배우는
                     <br />
