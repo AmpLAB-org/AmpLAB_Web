@@ -26,11 +26,15 @@ function WriteBlog() {
       formDataForBlog.append("nameformulter", file);
     });
 
+    formDataForBlog.append("id", "wefwafwaefawe");
+    formDataForBlog.append("title", "opopopo");
+    formDataForBlog.append("content", "zxzzxzx");
+
     console.dir(formDataForBlog);
 
     await axios.post(
       "http://localhost:5013/homepage/blog/upload",
-      formDataForBlog
+      formDataForBlog,
     );
   }
 
