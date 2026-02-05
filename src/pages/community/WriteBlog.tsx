@@ -5,6 +5,8 @@ import { useState, useRef } from "react";
 function WriteBlog() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [blogArticleTitle, setBlogArticleTitle] = useState("");
+  const [blogArticleTextContent, setBlogArticleTextContent] = useState("");
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const chosen = e.target.files;
@@ -20,6 +22,8 @@ function WriteBlog() {
 
   async function uploadBlogPost() {
     console.log(selectedFiles);
+    console.log(blogArticleTitle);
+    console.log(blogArticleTextContent);
 
     const formDataForBlog = new FormData();
     selectedFiles.forEach((file) => {
@@ -27,8 +31,8 @@ function WriteBlog() {
     });
 
     formDataForBlog.append("id", "wefwafwaefawe");
-    formDataForBlog.append("title", "opopopo");
-    formDataForBlog.append("content", "zxzzxzx");
+    formDataForBlog.append("title", blogArticleTitle);
+    formDataForBlog.append("content", blogArticleTextContent);
 
     console.dir(formDataForBlog);
 
@@ -41,7 +45,17 @@ function WriteBlog() {
   return (
     <div>
       블로그 글쓰기 페이지
-      <input />
+      <input
+        type="text"
+        value={blogArticleTitle}
+        onChange={(e) => {
+          e.stopPropagation();
+
+          console.log(e.currentTarget.value);
+
+          setBlogArticleTitle(e.currentTarget.value);
+        }}
+      />
       <input
         ref={fileInputRef}
         type="file"
@@ -62,7 +76,22 @@ function WriteBlog() {
           ))}
         </ul>
       )}
-      <textarea />
+      <br></br>
+      <br></br>
+      <textarea
+        value={blogArticleTextContent}
+        onChange={(e) => {
+          e.stopPropagation();
+
+          console.log(e.currentTarget.value);
+
+          setBlogArticleTextContent(e.currentTarget.value);
+        }}
+        style={{
+          minHeight: "1600px",
+          minWidth: "800px",
+        }}
+      />
       <button type="button" onClick={uploadBlogPost}>
         완료
       </button>
