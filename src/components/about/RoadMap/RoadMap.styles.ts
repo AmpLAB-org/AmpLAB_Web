@@ -1,5 +1,32 @@
 import styled from "styled-components";
 
+interface CardProps {
+  $side: "left" | "right";
+  $color: "purple" | "pink";
+}
+
+export const Section = styled.section`
+  position: relative;
+  width: 100%;
+  padding: 300px 0;
+  overflow: hidden;
+`;
+
+export const BgImage = styled.img`
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+`;
+
+export const Content = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
 export const Header = styled.div`
   text-align: center;
   margin-bottom: 100px;
@@ -21,7 +48,7 @@ export const Timeline = styled.div`
   max-width: 1000px;
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 70px;
 `;
 
 export const Line = styled.div`
@@ -30,7 +57,7 @@ export const Line = styled.div`
   left: 50%;
   transform: translateX(-50%);
   width: 2px;
-  height: 84%;
+  height: 85%;
   background: linear-gradient(180deg, #991375, #0057b8);
   z-index: -1;
 `;
@@ -40,8 +67,6 @@ export const Item = styled.div<{ $side: "left" | "right" }>`
   display: flex;
   justify-content: ${({ $side }) =>
     $side === "left" ? "flex-start" : "flex-end"};
-  text-align: ${({ $side }) => ($side === "left" ? "right" : "left")};
-  align-items: ${({ $side }) => ($side === "left" ? "flex-end" : "flex-start")};
 `;
 
 export const Dot = styled.div`
@@ -53,52 +78,65 @@ export const Dot = styled.div`
   height: 26px;
   border-radius: 50%;
   background: linear-gradient(90deg, #991375, #2c008e);
-  box-shadow:
-    0 0 6px rgba(153, 19, 117, 0.6),
-    0 0 12px rgba(44, 0, 142, 0.4);
   border: 1.5px solid #fff;
-  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 5px;
 `;
 
 export const Card = styled.div<{ $side: "left" | "right" }>`
+  position: relative;
   width: 400px;
   height: 200px;
-  display: flex;
-  flex-direction: column;
-  gap: 42px;
   padding: 23px 26px;
   background: #fff;
-  color: #111;
   border-radius: 16px;
-  box-shadow: 0 0px 25px rgba(124, 58, 237, 0.15);
+  box-shadow: 0 0 25px rgba(124, 58, 237, 0.15);
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  gap: 42px;
 `;
 
-export const Badge = styled.span<{ $side: "left" | "right" }>`
+export const Badge = styled.span<CardProps>`
   align-self: ${({ $side }) => ($side === "left" ? "flex-end" : "flex-start")};
-
-  display: inline-block;
-  width: 50px;
-  text-align: center;
   font-size: 12px;
   padding: 4px 12px;
   border-radius: 999px;
-  background: rgba(124, 58, 237, 0.15);
-  color: #7c3aed;
+  background: ${({ $color }) =>
+    $color === "purple"
+      ? "rgba(44,0,142,0.1)"
+      : "rgba(153,19,117,0.1)"};
+  color: ${({ $color }) => ($color === "purple" ? "#2C008E" : "#991375")};
   font-weight: bold;
 `;
 
-export const CardTitle = styled.h3`
+export const CardIcon = styled.div<CardProps>`
+  position: absolute;
+  ${({ $side }) => ($side === "left" ? "left: 26px;" : "right: 26px;")}
+
+  svg {
+    width: 100px;
+    height: 100px;
+    opacity: 0.3;
+    color: ${({ $color }) =>
+      $color === "purple" ? "#2C008E" : "#991375"};
+  }
+`;
+
+export const CardTitle = styled.h3<{ $color: "purple" | "pink" }>`
   font-size: 24px;
-  font-weight: bold;
   padding-bottom: 12px;
+  color: ${({ $color }) => ($color === "purple" ? "#2C008E" : "#991375")};
 `;
 
-export const CardDesc = styled.p`
+export const CardDesc = styled.p<{ $side: "left" | "right" }>`
   font-size: 16px;
   font-weight: lighter;
-  white-space: pre-line;
   line-height: 1.4;
+  text-align: ${({ $side }) => ($side === "left" ? "left" : "right")};
 `;
 
 export const GoalWrap = styled.div`
@@ -124,33 +162,15 @@ export const GoalTitle = styled.h2`
 
 export const GoalDesc = styled.p`
   font-size: 20px;
-  white-space: pre-line;
+
   strong {
     font-weight: bolder;
   }
 `;
 
-export const Section = styled.section`
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-`;
-
-export const Content = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  padding: 300px 0;
-`;
-
-export const Overlay = styled.div`
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-
+export const CardContainer = styled.div<{ $side: "left" | "right" }>`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: ${({ $side }) =>
+    $side === "left" ? "flex-start" : "flex-end"};
 `;
