@@ -85,12 +85,12 @@ export const SecondaryButton = styled(PrimaryButton)`
 `;
 
 export const CirclesContainer = styled.div`
+  position: relative;
   width: 700px;
   height: 360px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 45px 0;
 `;
 
 export const Circle = styled.div<{ $type: "amplify" | "lab" }>`
@@ -106,20 +106,21 @@ export const Circle = styled.div<{ $type: "amplify" | "lab" }>`
   ${({ $type }) =>
     $type === "amplify"
       ? `
-        left: 0;
         background: rgba(153, 19, 117, 0.1);
         border: 1px solid #991375;
       `
       : `
-        right: 0;
         background: rgba(44, 0, 142, 0.15);
         border: 1px solid #2C008E;
       `}
 `;
 
-export const CircleTitle = styled.h2`
+export const CircleTitle = styled.p`
   font-size: 32px;
-  font-weight: 700;
+  color: #3F3F3F;
+  strong {
+    font-weight: bold;
+  }
 `;
 
 export const CircleSubtitle = styled.p`
@@ -141,4 +142,9 @@ export const Content = styled.div`
   justify-content: center;
   gap: 20px;
   padding-bottom: 30px;
+`;
+
+export const Logo = styled.img`
+  width: 290px;
+  height: auto;
 `;

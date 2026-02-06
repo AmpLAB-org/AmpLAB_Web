@@ -1,8 +1,28 @@
 import * as L from "../../../styles/common.styles";
 import * as S from "./Introduction.styles";
 import bg from "../../../assets/background/bg_5.png";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import Logo from "../../../assets/logo/logo.ico";
 
-const BackgroundSection = () => {
+const IntroductionSection = () => {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "center center"],
+  });
+
+  const leftX = useTransform(scrollYProgress, [0, 1], [-550, 0]);
+  const rightX = useTransform(scrollYProgress, [0, 1], [550, 0]);
+
+  const circleScale = useTransform(scrollYProgress, [0, 0.7, 1], [1, 1, 0.5]);
+  
+  const circleOpacity = useTransform(scrollYProgress, [0, 1, 1], [1, 1, 0]);
+  
+  const logoOpacity = useTransform(scrollYProgress, [0, 0.8, 1], [0, 0, 1]);
+  const logoScale = useTransform(scrollYProgress, [0, 0.8, 1], [0.5, 0.5, 1]);
+
   return (
     <L.Container>
       <L.BgImage src={bg} />
@@ -26,16 +46,44 @@ const BackgroundSection = () => {
           </S.ButtonGroup>
         </S.HeroContent>
 
-        <S.CirclesContainer>
-          <S.Circle $type="amplify">
-            <S.CircleTitle>Amplify</S.CircleTitle>
-            <S.CircleSubtitle>확장하다</S.CircleSubtitle>
-          </S.Circle>
+        <S.CirclesContainer ref={ref}>
+          <motion.div 
+            style={{ 
+              x: leftX, 
+              opacity: circleOpacity, 
+              scale: circleScale,
+              position: 'absolute'
+            }}
+          >
+            <S.Circle $type="amplify">
+              <S.CircleTitle><strong>Amp</strong>lify</S.CircleTitle>
+              <S.CircleSubtitle>확장하다</S.CircleSubtitle>
+            </S.Circle>
+          </motion.div>
 
-          <S.Circle $type="lab">
-            <S.CircleTitle>LAB</S.CircleTitle>
-            <S.CircleSubtitle>연구소</S.CircleSubtitle>
-          </S.Circle>
+          <motion.div 
+            style={{ 
+              x: rightX, 
+              opacity: circleOpacity, 
+              scale: circleScale,
+              position: 'absolute'
+            }}
+          >
+            <S.Circle $type="lab">
+              <S.CircleTitle><strong>LAB</strong></S.CircleTitle>
+              <S.CircleSubtitle>연구소</S.CircleSubtitle>
+            </S.Circle>
+          </motion.div>
+
+          <motion.div 
+            style={{ 
+              opacity: logoOpacity, 
+              scale: logoScale,
+              position: 'absolute'
+            }}
+          >
+            <S.Logo src={Logo} alt="AmpLAB Logo" />
+          </motion.div>
         </S.CirclesContainer>
 
         <S.BottomText>
@@ -51,4 +99,4 @@ const BackgroundSection = () => {
   );
 };
 
-export default BackgroundSection;
+export default IntroductionSection;
