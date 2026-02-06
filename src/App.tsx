@@ -7,6 +7,7 @@ import Blog from "./pages/community/Blog";
 import WriteBlog from "./pages/community/WriteBlog";
 import News from "./pages/community/News";
 import CommunityBoard from "./pages/community/CommunityBoard";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="community" element={<CommunityBoard />} />
         </Route>
       </Routes>
+      <Footer />
     </Router>
   );
 }
