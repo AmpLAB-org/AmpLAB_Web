@@ -1,7 +1,9 @@
 // @ts-nocheck
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
-import { Outlet, useNavigate, useLocation } from "react-router";
+import { Link, Outlet, useNavigate, useLocation } from "react-router";
+// import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
+// /homepage/blog/read/each
 
 const Blog = () => {
   const [blogArticleList, setBlogArticleList] = useState([]);
@@ -39,20 +41,24 @@ const Blog = () => {
             글쓰기
           </button>
           {blogArticleList.map((item) => (
-            <div>
+            <div
+              onClick={() => {
+                // navigate("");
+              }}
+            >
               {item.title}
 
               <br></br>
 
-              {item.content}
+              {/* {item.content} */}
 
-              {item.addedFileNameList.map((file) => (
+              {/* {item.addedFileNameList.map((file) => (
                 <div>
                   {file}
 
                   <img src={"http://localhost:5013/uploads/" + file}></img>
                 </div>
-              ))}
+              ))} */}
             </div>
           ))}
         </div>

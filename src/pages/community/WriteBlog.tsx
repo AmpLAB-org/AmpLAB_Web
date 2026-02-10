@@ -1,6 +1,6 @@
 // @ts-nocheck
 import axios from "axios";
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // console.log(crypto);
 // const randomUuid = crypto.randomUUID();
@@ -13,6 +13,7 @@ function WriteBlog() {
   const [blogArticleTitle, setBlogArticleTitle] = useState("");
   const [blogArticleTextContent, setBlogArticleTextContent] = useState("");
   const [fileNameListForServer, setFileNameListForServer] = useState([]);
+  // const [preventAsyncIssue, setPreventAsyncIssue] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const chosen = e.target.files;
@@ -88,6 +89,7 @@ function WriteBlog() {
         const fileNameToSaveInServer = compareSecond + extName;
 
         arrayForFileName.push({
+          originalName: e.target.files[icIdx].name,
           id: compareSecond,
           fullName: fileNameToSaveInServer,
           extName: extName,
@@ -242,17 +244,24 @@ function WriteBlog() {
     const formDataForBlog = new FormData();
 
     formDataForBlog.append("content", blogArticleTextContent);
-    formDataForBlog.append("temporalKeyToSave", "nnjjnjjijiji877788");
+    formDataForBlog.append("temporalKeyToSave", fileNameListForServer);
 
-    console.log(selectedFiles);
+    console.dir(selectedFiles);
     console.log(blogArticleTitle);
-    console.log(blogArticleTextContent);
+    console.dir(blogArticleTextContent);
 
     formDataForBlog.append("id", "wefwafwaefawe");
     formDataForBlog.append("title", blogArticleTitle);
 
     selectedFiles.forEach((file) => {
-      formDataForBlog.append("nameformulter", file);
+      const sameFileName = fileNameListForServer.filter(
+        (eachFileName) => eachFileName.originalName === file.name,
+      )[0];
+
+      console.dir(sameFileName);
+      console.dir(sameFileName.fullName);
+
+      formDataForBlog.append("nameformulter", file, sameFileName.fullName);
     });
 
     console.dir(formDataForBlog);
@@ -262,6 +271,21 @@ function WriteBlog() {
       formDataForBlog,
     );
   }
+
+  // blogArticleTextContent
+
+  useEffect(() => {
+    console.log(blogArticleTextContent);
+    if (blogArticleTextContent != "") {
+      uploadBlogPost();
+    }
+  }, [blogArticleTextContent]);
+
+  // fileNameListForServer
+
+  useEffect(() => {
+    console.log(fileNameListForServer);
+  }, [fileNameListForServer]);
 
   return (
     <div>
@@ -305,8 +329,6 @@ function WriteBlog() {
           e.stopPropagation();
 
           console.log(e.currentTarget.value);
-
-          setBlogArticleTextContent(e.currentTarget.value);
         }}
         style={{
           minHeight: "1600px",
