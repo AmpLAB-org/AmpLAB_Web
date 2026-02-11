@@ -43,7 +43,10 @@ const Blog = () => {
           {blogArticleList.map((item) => (
             <div
               onClick={() => {
-                // navigate("");
+                console.dir(item);
+                console.dir(item.id);
+
+                navigate("eachDetail", { state: item.id });
               }}
             >
               {item.title}

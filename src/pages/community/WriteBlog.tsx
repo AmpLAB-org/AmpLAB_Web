@@ -113,7 +113,7 @@ function WriteBlog() {
     console.dir(selectedFiles);
     console.dir(fileNameListForServer);
     // console.dir(blogWriteEditorRef.current.outerHTML);
-    // console.log(blogWriteEditorRef.current.childNodes);
+
     const allContentListInEditor = blogWriteEditorRef.current.childNodes;
 
     let allOuterhtmlInEditor = "";
@@ -153,11 +153,12 @@ function WriteBlog() {
 
             console.dir(sameSrcObj);
 
-            blogWriteEditorRef.current.childNodes[i].src = sameSrcObj.fullName;
+            blogWriteEditorRef.current.childNodes[i].src =
+              "http://localhost:5013/uploads/" + sameSrcObj.fullName;
 
             blogWriteEditorRef.current.childNodes[i].setAttribute(
               "src",
-              sameSrcObj.fullName,
+              "http://localhost:5013/uploads/" + sameSrcObj.fullName,
             );
 
             console.dir(blogWriteEditorRef.current.childNodes[i].id);
@@ -195,11 +196,16 @@ function WriteBlog() {
                   console.dir(sameSrcObjInChild);
 
                   blogWriteEditorRef.current.childNodes[i].children[j].src =
+                    "http://localhost:5013/uploads/" +
                     sameSrcObjInChild.fullName;
 
                   blogWriteEditorRef.current.childNodes[i].children[
                     j
-                  ].setAttribute("src", sameSrcObjInChild.fullName);
+                  ].setAttribute(
+                    "src",
+                    "http://localhost:5013/uploads/" +
+                      sameSrcObjInChild.fullName,
+                  );
 
                   console.dir(
                     blogWriteEditorRef.current.childNodes[i].children[j].id,
@@ -234,7 +240,7 @@ function WriteBlog() {
         }
       } else if (i === allContentListInEditor.length) {
         console.log(allOuterhtmlInEditor);
-        // console.dir(blogWriteEditorRef.current.outerHTML);
+
         setBlogArticleTextContent(allOuterhtmlInEditor);
       }
     }
@@ -323,18 +329,6 @@ function WriteBlog() {
       )}
       <br></br>
       <br></br>
-      {/* <textarea
-        value={blogArticleTextContent}
-        onChange={(e) => {
-          e.stopPropagation();
-
-          console.log(e.currentTarget.value);
-        }}
-        style={{
-          minHeight: "1600px",
-          minWidth: "800px",
-        }}
-      /> */}
       <div
         ref={blogWriteEditorRef}
         id="editor"
@@ -347,7 +341,6 @@ function WriteBlog() {
         type="button"
         onClick={() => {
           checkInnerContentInEditor();
-          // uploadBlogPost();
         }}
       >
         완료
