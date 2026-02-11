@@ -124,8 +124,8 @@ function WriteBlog() {
 
         if (allContentListInEditor[i].nodeType === 3) {
           // outerHTML을 더해야하는 경우에 해당
-          console.log("text 문자열인지 확인");
-          console.dir(allContentListInEditor[i].data);
+
+          // console.dir(allContentListInEditor[i].data);
           // 모든 " "를 "&nbsp; "으로 바꿔야함
           const realOuterhtml = allContentListInEditor[i].data.replaceAll(
             " ",
@@ -134,7 +134,7 @@ function WriteBlog() {
 
           console.dir(realOuterhtml);
 
-          allOuterhtmlInEditor = allOuterhtmlInEditor + realOuterhtml;
+          // allOuterhtmlInEditor = allOuterhtmlInEditor + realOuterhtml;
         } else if (allContentListInEditor[i].nodeType === 1) {
           console.log("html element인지 확인");
           console.log(allContentListInEditor[i]);
@@ -163,11 +163,11 @@ function WriteBlog() {
 
             console.dir(blogWriteEditorRef.current.childNodes[i].id);
             console.dir(blogWriteEditorRef.current.childNodes[i].src);
-            console.log(blogWriteEditorRef.current.childNodes[i].outerHTML);
+            // console.log(blogWriteEditorRef.current.childNodes[i].outerHTML);
 
-            allOuterhtmlInEditor =
-              allOuterhtmlInEditor +
-              blogWriteEditorRef.current.childNodes[i].outerHTML;
+            // allOuterhtmlInEditor =
+            //   allOuterhtmlInEditor +
+            //   document.getElementById("editor").childNodes[i].outerHTML;
           } else if (
             allContentListInEditor[i].children &&
             allContentListInEditor[i].children.length > 0
@@ -216,31 +216,33 @@ function WriteBlog() {
                       .outerHTML,
                   );
 
-                  allOuterhtmlInEditor =
-                    allOuterhtmlInEditor +
-                    blogWriteEditorRef.current.childNodes[i].children[j]
-                      .outerHTML;
+                  // allOuterhtmlInEditor =
+                  //   allOuterhtmlInEditor +
+                  //   document.getElementById("editor").childNodes[i].children[j]
+                  //     .outerHTML;
                 } else {
                   // children에 자식 요소가 존재하지만, img가 아닌 경우
                 }
               } else if (j === allContentListInEditor[i].children.length) {
                 // allContentListInEditor[i]의 outerHTML을 더해야하는 경우에 해당
-                allOuterhtmlInEditor =
-                  allOuterhtmlInEditor + allContentListInEditor[i].outerHTML;
+                // allOuterhtmlInEditor =
+                //   allOuterhtmlInEditor + allContentListInEditor[i].outerHTML;
               }
             }
           } else {
             // 자식 요소가 존재하지 않고, img가 아니므로,
             // outerHTML을 더해야하는 경우에 해당
-            allOuterhtmlInEditor =
-              allOuterhtmlInEditor + allContentListInEditor[i].outerHTML;
+            // allOuterhtmlInEditor =
+            //   allOuterhtmlInEditor + allContentListInEditor[i].outerHTML;
           }
         } else {
           // 이 경우에는 아무것도 더하지 않는다
         }
       } else if (i === allContentListInEditor.length) {
-        console.log(allOuterhtmlInEditor);
+        console.dir(document.getElementById("editor").innerHTML);
+        allOuterhtmlInEditor = document.getElementById("editor").innerHTML;
 
+        console.dir(allOuterhtmlInEditor);
         setBlogArticleTextContent(allOuterhtmlInEditor);
       }
     }

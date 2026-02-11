@@ -8,8 +8,11 @@ const Community = () => {
   const afterCommunity = location.pathname.split("/community/")[1] ?? "blog";
   const currentSubPath = afterCommunity.split("/")[0] || "blog";
 
-  // /community/blog/write 인 경우에는 커뮤니티 페이지 UI를 숨김
+  // /community/blog/write 또는 /community/blog/eachDetail 인 경우에는 커뮤니티 페이지 UI를 숨김
   const isWritePage = location.pathname.startsWith("/community/blog/write");
+  const isDetailPage = location.pathname.startsWith(
+    "/community/blog/eachDetail",
+  );
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.stopPropagation();
@@ -19,7 +22,7 @@ const Community = () => {
 
   return (
     <div>
-      {!isWritePage && (
+      {!isWritePage && !isDetailPage && (
         <>
           커뮤니티 페이지
           <select value={currentSubPath} onChange={handleChange}>

@@ -79,7 +79,7 @@ const BlogDetail = () => {
           <div
             ref={blogEachDetailContentRef}
             id="vieweditor"
-            contentEditable="true"
+            // contentEditable="true"
             style={{
               minHeight: "1300px",
             }}

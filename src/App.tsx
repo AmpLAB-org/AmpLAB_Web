@@ -22,9 +22,9 @@ function App() {
         <Route path="/community" element={<Community />}>
           <Route index element={<Navigate to="/community/blog" replace />} />
           <Route path="blog" element={<Blog />}>
-            <Route path="eachDetail" element={<BlogDetail />} />
             <Route path="write" element={<WriteBlog />} />
           </Route>
+          <Route path="blog/eachDetail" element={<BlogDetail />} />
           <Route path="news" element={<News />} />
           <Route path="community" element={<CommunityBoard />} />
         </Route>
