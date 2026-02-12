@@ -7,12 +7,12 @@ export const services = [
     img: C.Card_1,
   },
     {
-    id: "factoryx",
+    id: "Sphere",
     name: "Sphere",
     img: C.Card_2,
   },
     {
-    id: "factoryx",
+    id: "myCMO",
     name: "myCMO",
     img: C.Card_3,
   },
