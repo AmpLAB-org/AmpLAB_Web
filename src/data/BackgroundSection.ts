@@ -9,7 +9,7 @@ export interface ServiceMenuItem {
 
 export const menuItems: ServiceMenuItem[] = [
   {
-    id: "product",
+    id: "P",
     letter: "P",
     angle: 0,
     label: "Product",
@@ -17,7 +17,7 @@ export const menuItems: ServiceMenuItem[] = [
     color: "linear-gradient(135deg, #991375, #2C008E)",
   },
   {
-    id: "accelerate",
+    id: "A1",
     letter: "A",
     angle: 45,
     label: "Accelerate",
@@ -25,7 +25,7 @@ export const menuItems: ServiceMenuItem[] = [
     color: "linear-gradient(135deg, #991375, #2C008E)",
   },
   {
-    id: "business",
+    id: "B",
     letter: "B",
     angle: 135,
     label: "Business",
@@ -33,7 +33,7 @@ export const menuItems: ServiceMenuItem[] = [
     color: "linear-gradient(135deg, #991375, #2C008E)",
   },
   {
-    id: "amplify",
+    id: "A2",
     letter: "A",
     angle: 180,
     label: "Amplify",
@@ -41,7 +41,7 @@ export const menuItems: ServiceMenuItem[] = [
     color: "linear-gradient(135deg, #991375, #2C008E)",
   },
   {
-    id: "make",
+    id: "M",
     letter: "M",
     angle: 225,
     label: "Make",
@@ -49,7 +49,7 @@ export const menuItems: ServiceMenuItem[] = [
     color: "linear-gradient(135deg, #991375, #2C008E)",
   },
   {
-    id: "lab",
+    id: "L",
     letter: "L",
     angle: 315,
     label: "Lab",

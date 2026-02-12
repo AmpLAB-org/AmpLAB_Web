@@ -4,7 +4,8 @@ import * as S from "./BackgroundSection.styles";
 import RadialMenuItem from "../../../components/RadialMenuItem/ReadiaMenuItem";
 import bg3 from "../../../assets/background/bg_3.svg";
 import { menuItems } from "../../../data/BackgroundSection";
-import logo from "../../../assets/logo/logo_3.svg";
+import Logo from "../../../assets/logo/logo_2.png";
+import * as LogoText from "../../../assets/logoText";
 
 const BackgroundSection = () => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -31,8 +32,36 @@ const BackgroundSection = () => {
 
         <S.CircleWrapper>
           <S.OutCircle $activeAngle={activeItem.angle}>
-            <S.MainCircle img={logo}>
+            <S.MainCircle>
+              <S.Logo src={Logo} alt="Logo" />
+              <S.CenterLogo>
+                <S.Letter $active={activeItem.id === "A1"}>
+                  <LogoText.A />
+                </S.Letter>
+
+                <S.Letter $active={activeItem.id === "M"}>
+                  <LogoText.M />
+                </S.Letter>
+
+                <S.Letter $active={activeItem.id === "P"}>
+                  <LogoText.P />
+                </S.Letter>
+
+                <S.Letter $active={activeItem.id === "L"}>
+                  <LogoText.L />
+                </S.Letter>
+
+                <S.Letter $active={activeItem.id === "A2"}>
+                  <LogoText.A />
+                </S.Letter>
+
+                <S.Letter $active={activeItem.id === "B"}>
+                  <LogoText.B />
+                </S.Letter>
+              </S.CenterLogo>
+
               <S.InnerDot $activeAngle={activeItem.angle} $distance="250px" />
+
               {menuItems.map((item, index) => (
                 <RadialMenuItem
                   key={item.id}

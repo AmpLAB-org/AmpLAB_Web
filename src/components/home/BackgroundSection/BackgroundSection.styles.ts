@@ -16,7 +16,7 @@ export const CircleWrapper = styled.div`
   align-items: center;
 `;
 
-export const MainCircle = styled.div<{ img: string }>`
+export const MainCircle = styled.div`
   width: 565px;
   height: 565px;
   border-radius: 50%;
@@ -24,26 +24,28 @@ export const MainCircle = styled.div<{ img: string }>`
   background: #fff;
   box-shadow: 8px 8px 47px rgba(44, 0, 142, 0.15);
 
-  &::before {
-    content: "";
-    position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
-    width: 70%;
-    height: 70%;
+export const Logo = styled.img`
+  width: 100px;
+  height: 130px;
+`;
 
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+export const CenterLogo = styled.div`
+  width: 344px;
+  height: 73px;
 
-    border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 
-    background-image: url(${(p) => p.img});
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-
-    z-index: 1;
-    pointer-events: none;
+  svg path {
+    fill: #cfcfcf;
+    transition: fill 0.3s ease;
   }
 `;
 
@@ -113,4 +115,13 @@ export const Line = styled.div`
   height: 45px;
   background-color: #000;
   margin: 45px;
+`;
+
+export const Letter = styled.div<{ $active: boolean }>`
+  svg path {
+    fill: ${({ $active }) => ($active ? "url(#ampGradient)" : "#CFCFCF")};
+    transition: all 0.3s ease;
+    stroke: ${({ $active }) => ($active ? "#ffffff" : "none")};
+    stroke-width: ${({ $active }) => ($active ? "1" : "0")};
+  }
 `;
