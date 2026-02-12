@@ -2,8 +2,6 @@
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 import { Link, Outlet, useNavigate, useLocation } from "react-router";
-// import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
-// /homepage/blog/read/each
 
 const Blog = () => {
   const [blogArticleList, setBlogArticleList] = useState([]);
@@ -17,7 +15,7 @@ const Blog = () => {
       "http://localhost:5013/homepage/blog/read/list",
     );
 
-    console.log(response);
+    // console.log(response);
     console.log(response.data);
 
     setBlogArticleList(response.data);
@@ -52,16 +50,6 @@ const Blog = () => {
               {item.title}
 
               <br></br>
-
-              {/* {item.content} */}
-
-              {/* {item.addedFileNameList.map((file) => (
-                <div>
-                  {file}
-
-                  <img src={"http://localhost:5013/uploads/" + file}></img>
-                </div>
-              ))} */}
             </div>
           ))}
         </div>

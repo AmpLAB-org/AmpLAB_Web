@@ -34,7 +34,7 @@ const BlogDetail = () => {
         console.log("Blog Detail:", response.data);
         setBlogDetail(response.data);
 
-        console.log(blogEachDetailContentRef);
+        // console.log(blogEachDetailContentRef);
         console.log(blogEachDetailContentRef.current);
         // console.log(blogEachDetailContentRef.current.innerHTML);
       } catch (error) {
@@ -74,7 +74,6 @@ const BlogDetail = () => {
           <div>작성자: {blogDetail.author}</div>
           <div>작성일: {blogDetail.createdAt}</div>
           <hr />
-          {/* <div>{blogDetail.content}</div> */}
 
           <div
             ref={blogEachDetailContentRef}

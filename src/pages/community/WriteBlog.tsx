@@ -2,10 +2,6 @@
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
 
-// console.log(crypto);
-// const randomUuid = crypto.randomUUID();
-// console.log(randomUuid);
-
 function WriteBlog() {
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -40,18 +36,18 @@ function WriteBlog() {
         const temporalIndex =
           String(icIdx + 1) + String(icIdx + 1) + String(icIdx + 1);
 
-        console.log(temporalIndex);
+        // console.log(temporalIndex);
 
         const secondSeed = temporalIndex + timeSeed + temporalIndex;
 
-        console.log(secondSeed);
+        // console.log(secondSeed);
 
         const compareSecond = window.btoa(secondSeed);
 
         console.log(compareSecond);
 
         function handleFileReaderLoad(loadEvent) {
-          console.log(loadEvent);
+          // console.log(loadEvent);
           loadEvent.stopPropagation();
 
           reader.removeEventListener("load", handleFileReaderLoad);
@@ -112,7 +108,7 @@ function WriteBlog() {
   function checkInnerContentInEditor() {
     console.dir(selectedFiles);
     console.dir(fileNameListForServer);
-    // console.dir(blogWriteEditorRef.current.outerHTML);
+    // console.dir(blogWriteEditorRef.current.innerHTML);
 
     const allContentListInEditor = blogWriteEditorRef.current.childNodes;
 
@@ -123,29 +119,22 @@ function WriteBlog() {
         console.dir(allContentListInEditor[i].nodeName);
 
         if (allContentListInEditor[i].nodeType === 3) {
-          // outerHTML을 더해야하는 경우에 해당
-
           // console.dir(allContentListInEditor[i].data);
-          // 모든 " "를 "&nbsp; "으로 바꿔야함
+
           const realOuterhtml = allContentListInEditor[i].data.replaceAll(
             " ",
             "&nbsp; ",
           );
 
           console.dir(realOuterhtml);
-
-          // allOuterhtmlInEditor = allOuterhtmlInEditor + realOuterhtml;
         } else if (allContentListInEditor[i].nodeType === 1) {
-          console.log("html element인지 확인");
+          // console.log("html element인지 확인");
           console.log(allContentListInEditor[i]);
 
           // console.dir(allContentListInEditor[i].outerHTML);
           console.dir(allContentListInEditor[i].children);
 
           if (allContentListInEditor[i].nodeName === "IMG") {
-            // 자기 자신이 <img /> 요소이므로,
-            // outerHTML을 더해야하는 경우에 해당
-
             const sameSrcObj = fileNameListForServer.filter(
               (item) => item.id === blogWriteEditorRef.current.childNodes[i].id,
             )[0];
@@ -161,18 +150,13 @@ function WriteBlog() {
               "http://localhost:5013/uploads/" + sameSrcObj.fullName,
             );
 
-            console.dir(blogWriteEditorRef.current.childNodes[i].id);
+            // console.dir(blogWriteEditorRef.current.childNodes[i].id);
             console.dir(blogWriteEditorRef.current.childNodes[i].src);
-            // console.log(blogWriteEditorRef.current.childNodes[i].outerHTML);
-
-            // allOuterhtmlInEditor =
-            //   allOuterhtmlInEditor +
-            //   document.getElementById("editor").childNodes[i].outerHTML;
           } else if (
             allContentListInEditor[i].children &&
             allContentListInEditor[i].children.length > 0
           ) {
-            console.log("children에 자식 요소가 존재함");
+            // console.log("children에 자식 요소가 존재함");
 
             // [i].children 배열에 img가 포함되어있는지, 아닌지 구분
             for (
@@ -207,36 +191,21 @@ function WriteBlog() {
                       sameSrcObjInChild.fullName,
                   );
 
-                  console.dir(
-                    blogWriteEditorRef.current.childNodes[i].children[j].id,
-                  );
+                  // console.dir(
+                  //   blogWriteEditorRef.current.childNodes[i].children[j].id,
+                  // );
 
                   console.log(
                     blogWriteEditorRef.current.childNodes[i].children[j]
                       .outerHTML,
                   );
-
-                  // allOuterhtmlInEditor =
-                  //   allOuterhtmlInEditor +
-                  //   document.getElementById("editor").childNodes[i].children[j]
-                  //     .outerHTML;
                 } else {
                   // children에 자식 요소가 존재하지만, img가 아닌 경우
                 }
               } else if (j === allContentListInEditor[i].children.length) {
-                // allContentListInEditor[i]의 outerHTML을 더해야하는 경우에 해당
-                // allOuterhtmlInEditor =
-                //   allOuterhtmlInEditor + allContentListInEditor[i].outerHTML;
               }
             }
-          } else {
-            // 자식 요소가 존재하지 않고, img가 아니므로,
-            // outerHTML을 더해야하는 경우에 해당
-            // allOuterhtmlInEditor =
-            //   allOuterhtmlInEditor + allContentListInEditor[i].outerHTML;
           }
-        } else {
-          // 이 경우에는 아무것도 더하지 않는다
         }
       } else if (i === allContentListInEditor.length) {
         console.dir(document.getElementById("editor").innerHTML);
@@ -280,16 +249,12 @@ function WriteBlog() {
     );
   }
 
-  // blogArticleTextContent
-
   useEffect(() => {
     console.log(blogArticleTextContent);
     if (blogArticleTextContent != "") {
       uploadBlogPost();
     }
   }, [blogArticleTextContent]);
-
-  // fileNameListForServer
 
   useEffect(() => {
     console.log(fileNameListForServer);
