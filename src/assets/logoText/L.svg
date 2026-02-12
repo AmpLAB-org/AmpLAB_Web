@@ -1,0 +1,13 @@
+<svg width="41" height="59" viewBox="0 0 41 59" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="ampGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="38%" stop-color="#991375" />
+      <stop offset="83%" stop-color="#2c008e" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M0 0H11.4021V56.5811H40.0688V58.0805H0V0Z"
+    fill="currentColor"
+  />
+</svg>
