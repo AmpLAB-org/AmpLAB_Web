@@ -68,10 +68,11 @@ export const InnerDot = styled.div<InnerDotProps>`
   transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 `;
 
+const correctedAngle = (angle: number) => (angle + 90 + 360) % 360;
+
 export const OutCircle = styled.div<OutCircleProps>`
   width: 595px;
   height: 595px;
-  border-radius: 50%;
   position: relative;
 
   display: flex;
@@ -86,15 +87,14 @@ export const OutCircle = styled.div<OutCircleProps>`
     padding: 3px;
 
     background: conic-gradient(
-      from 90deg,
       #e3e3e3 0deg,
-      #e3e3e3 ${(p) => p.$activeAngle - 12}deg,
+      #e3e3e3 ${(p) => correctedAngle(p.$activeAngle - 12)}deg,
 
-      #991375 ${(p) => p.$activeAngle - 6}deg,
-      #2c008e ${(p) => p.$activeAngle}deg,
-      #991375 ${(p) => p.$activeAngle + 6}deg,
+      #991375 ${(p) => correctedAngle(p.$activeAngle - 6)}deg,
+      #2c008e ${(p) => correctedAngle(p.$activeAngle)}deg,
+      #991375 ${(p) => correctedAngle(p.$activeAngle + 6)}deg,
 
-      #e3e3e3 ${(p) => p.$activeAngle + 12}deg,
+      #e3e3e3 ${(p) => correctedAngle(p.$activeAngle + 12)}deg,
       #e3e3e3 360deg
     );
 

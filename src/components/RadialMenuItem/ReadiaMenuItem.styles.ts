@@ -8,9 +8,10 @@ export const Wrapper = styled.div<{
   top: 50%;
   left: 50%;
 
-  transform: translate(-50%, -50%)
-    rotate(${p => p.$angle}deg)
-    translateX(${p => p.$radius}px);
+  transform: translate(-50%, -50%) rotate(${(p) => p.$angle}deg)
+    translateX(${(p) => p.$radius}px);
+
+  z-index: 10;
 `;
 
 export const Content = styled.div<{ $angle: number }>`
@@ -19,7 +20,9 @@ export const Content = styled.div<{ $angle: number }>`
   align-items: center;
   gap: 6px;
 
-  transform: rotate(-${p => p.$angle}deg);
+  transform: rotate(-${(p) => p.$angle}deg);
+
+  padding: 20px;
 `;
 
 export const Label = styled.div<{ $isActive: boolean }>`
@@ -36,6 +39,8 @@ export const Label = styled.div<{ $isActive: boolean }>`
       : `
     color: #a8a8a8;
   `}
+
+  transition: font-size 0.3s ease;
 `;
 
 export const SubLabel = styled.div<{ $isActive: boolean }>`
@@ -43,6 +48,10 @@ export const SubLabel = styled.div<{ $isActive: boolean }>`
   color: ${({ $isActive }) => ($isActive ? "#000" : "#a8a8a8")};
   white-space: nowrap;
   opacity: 0.8;
+
+  transition:
+    font-size 0.3s ease,
+    color 0.3s ease;
 `;
 
 export const Circle = styled.div<{
@@ -53,8 +62,7 @@ export const Circle = styled.div<{
   height: 83px;
   border-radius: 50%;
 
-  background: ${({ $isActive, $color }) =>
-    $isActive ? $color : "#fff"};
+  background: ${({ $isActive, $color }) => ($isActive ? $color : "#fff")};
 
   display: flex;
   align-items: center;
@@ -75,4 +83,7 @@ export const Circle = styled.div<{
       : "none"};
 
   transition: all 0.3s ease;
+
+  position: relative;
+  z-index: 1;
 `;

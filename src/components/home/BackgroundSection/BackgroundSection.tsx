@@ -11,10 +11,10 @@ const BackgroundSection = () => {
   const activeItem = menuItems[activeIndex];
 
   return (
-    <L.Container>
+    <L.Container style={{ overflow: "visible" }}>
       <L.BgImage src={bg3} />
-      <L.Overlay>
-        <L.Content>
+      <L.Overlay style={{ overflow: "visible" }}>
+        <L.Content style={{ overflow: "visible" }}>
           <L.TextOverlay>고객 중심 기술 실현으로</L.TextOverlay>
           <L.TextOverlay>
             <strong>비즈니스 성공을 함께하는 기술 파트너</strong>
@@ -22,20 +22,17 @@ const BackgroundSection = () => {
           <L.CardSubtitle>
             We make products and amplify them to accelerate business.
           </L.CardSubtitle>
-          <S.Line/>
+          <S.Line />
           <S.Description>
-            앰플랩은 제품을 만들고, 가치를 증폭하며, 비즈니스를 가속하는 프로덕트
-            실험실입니다
+            앰플랩은 제품을 만들고, 가치를 증폭하며, 비즈니스를 가속하는
+            프로덕트 실험실입니다
           </S.Description>
         </L.Content>
 
         <S.CircleWrapper>
           <S.OutCircle $activeAngle={activeItem.angle}>
             <S.MainCircle img={logo}>
-              <S.InnerDot
-                $activeAngle={activeItem.angle}
-                $distance="250px"
-              />
+              <S.InnerDot $activeAngle={activeItem.angle} $distance="250px" />
               {menuItems.map((item, index) => (
                 <RadialMenuItem
                   key={item.id}
