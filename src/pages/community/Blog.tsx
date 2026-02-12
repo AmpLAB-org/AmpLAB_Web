@@ -1,7 +1,7 @@
 // @ts-nocheck
 import axios from "axios";
 import { useState, useEffect, useRef } from "react";
-import { Outlet, useNavigate, useLocation } from "react-router";
+import { Link, Outlet, useNavigate, useLocation } from "react-router";
 
 const Blog = () => {
   const [blogArticleList, setBlogArticleList] = useState([]);
@@ -15,7 +15,7 @@ const Blog = () => {
       "http://localhost:5013/homepage/blog/read/list",
     );
 
-    console.log(response);
+    // console.log(response);
     console.log(response.data);
 
     setBlogArticleList(response.data);
@@ -39,20 +39,17 @@ const Blog = () => {
             글쓰기
           </button>
           {blogArticleList.map((item) => (
-            <div>
+            <div
+              onClick={() => {
+                console.dir(item);
+                console.dir(item.id);
+
+                navigate("eachDetail", { state: item.id });
+              }}
+            >
               {item.title}
 
               <br></br>
-
-              {item.content}
-
-              {item.addedFileNameList.map((file) => (
-                <div>
-                  {file}
-
-                  <img src={"http://localhost:5013/uploads/" + file}></img>
-                </div>
-              ))}
             </div>
           ))}
         </div>

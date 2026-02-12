@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Community from "./pages/Community";
 import Blog from "./pages/community/Blog";
 import WriteBlog from "./pages/community/WriteBlog";
+import BlogDetail from "./pages/community/BlogDetail";
 import News from "./pages/community/News";
 import CommunityBoard from "./pages/community/CommunityBoard";
 import Footer from "./components/Footer/Footer";
@@ -23,6 +24,7 @@ function App() {
           <Route path="blog" element={<Blog />}>
             <Route path="write" element={<WriteBlog />} />
           </Route>
+          <Route path="blog/eachDetail" element={<BlogDetail />} />
           <Route path="news" element={<News />} />
           <Route path="community" element={<CommunityBoard />} />
         </Route>
