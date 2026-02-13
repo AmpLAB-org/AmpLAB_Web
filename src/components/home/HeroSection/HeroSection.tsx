@@ -2,6 +2,7 @@ import * as L from "../../../styles/common.styles";
 import * as S from "./HeroSection.styles";
 import logo from "../../../assets/logo/logo_2.png";
 import bg1 from "../../../assets/background/bg_1.png";
+import ScrollIndicator from "../../ScrollIndicator/ScrollIndicator";
 
 const HeroSection = () => {
   return (
@@ -17,6 +18,7 @@ const HeroSection = () => {
           </S.Description>
         </L.Content>
         <img src={logo} alt="logo" />
+        <ScrollIndicator />
       </L.Overlay>
     </L.Container>
   );
