@@ -10,6 +10,7 @@ export const Container = styled.section`
   flex-direction: column;
   align-items: center;
   padding-bottom: 150px;
+  overflow: hidden;
 `;
 
 export const Header = styled.div`
