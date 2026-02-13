@@ -1,4 +1,4 @@
-import styled,{keyframes} from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 export const slideLeft = keyframes`
   0% { transform: translateX(0); }
@@ -20,6 +20,16 @@ export const BgImage = styled.img`
   display: block;
 `;
 
+export const Bg = styled.div<{img : string}>`
+  width: 100%;
+  height: 100vh;
+  background-image: url(${(p) => p.img});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding-bottom: 100px;
+`;
+
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
@@ -39,7 +49,6 @@ export const Overlay = styled.div`
   align-items: center;
   justify-content: center;
 `;
-
 
 export const TextOverlay = styled.div`
   width: 100%;
