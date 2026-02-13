@@ -27,7 +27,7 @@ export const Bg = styled.div<{img : string}>`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-bottom: 100px;
+  padding-bottom: 200px;
 `;
 
 export const Content = styled.div`
